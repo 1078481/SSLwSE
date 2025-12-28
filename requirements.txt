@@ -1,0 +1,24 @@
+# --- Data Manipulation & Analysis ---
+pandas>=1.3.0
+numpy>=1.21.0
+
+# --- Visualization ---
+matplotlib>=3.4.0
+seaborn>=0.11.0
+
+# --- Machine Learning & Evaluation ---
+scikit-learn>=1.0.0
+xgboost>=1.5.0
+imbalanced-learn>=0.8.0
+
+# --- Deep Learning & NLP (Medical Embeddings) ---
+torch>=1.10.0
+transformers>=4.15.0
+
+# --- Dimensionality Reduction ---
+# Note: The import name in python is 'umap', but the package name is 'umap-learn'
+umap-learn>=0.5.0
+
+# --- File I/O & Formatting ---
+openpyxl>=3.0.0
+tabulate>=0.8.9
