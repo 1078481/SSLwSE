@@ -29,8 +29,9 @@ Project_Root/
 │   └── vocab.txt
 │
 ├── scripts/
-│   ├── train_base_stacking.py        # Code for Strategy 1 & 2
-│   └── train_proposed_method.py      # Code for Strategy 3 (Ours)
+│   ├── baselines&stacking.py        # Code for baselines & Strategy 1
+│   ├── self_stacking.py        # Code for Strategy 2
+│   └── ours.py      # Code for Strategy 3 (Ours)
 │
 ├── requirements.txt                  # Python dependencies
 └── README.md                         # This file
@@ -114,12 +115,17 @@ print(f"Model saved to {save_directory}")
 This script trains the initial Stacking Classifier and performs the standard Self-Training comparison using `1.xlsx`.
 
 ```bash
-python scripts/train_base_stacking.py
+python scripts/baselines&stacking.py
+
+```
+
+```bash
+python scripts/self_stacking.py
 
 ```
 
 * **Input:** `1.xlsx`
-* **Output:** `stacking_model_SEED.pkl`
+* **Output:** `stacking_model_SEED.pkl/self_stacking_model_SEED.pkl`
 
 ### Step 2: Run Proposed Method (Ours)
 
@@ -128,7 +134,7 @@ This script executes the enhanced semi-supervised pipeline (BERT + UMAP + KMeans
 **Important:** Ensure the variable `DATASET_PATH` in this script is set to `'3.xlsx'`.
 
 ```bash
-python scripts/train_proposed_method.py
+python scripts/ours.py
 
 ```
 
