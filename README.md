@@ -168,8 +168,8 @@ We provide a production-ready checkpoint so that users can directly use the mode
 Ensure you have the following files in your project directory:
 
 * **Model File:** `ssl_enhanced_model_rs_2025.pkl` (The pre-trained model weights.).
-* **Scaler File:** `scaler_enhanced_rs_2025.pkl` (Required to normalize new data exactly as done during training).
-* **Inference Dataset:** `3.xlsx` (The data file containing the aircraft parameters for inference.).
+* **Scaler File:** `scaler_enhanced_rs_2025.pkl` (Required to normalize new data exactly as done during training.).
+* **Inference Dataset:** `3.xlsx` (The data file for inference.).
 
 ### 2. Run Inference
 We have prepared a script to load the model and process the aircraft data. Create a file named ours_inference.py and execute the following command:
