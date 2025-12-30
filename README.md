@@ -62,7 +62,6 @@ This framework relies on two specific Excel files. Please place them in the proj
 * **Usage:** Used for training **Baseline Models (Stacking)** and **Standard Self-Training (Strategy 2)**.
 * **Format:** Excel file containing columns:
 * Numerical Features (various)
-* `CasInf`, `DocMes`, `PatMes` (Text columns)
 * `PatSat` (Target variable: 0, 1, 2 for labeled; -1 for unlabeled)
 
 
@@ -71,6 +70,9 @@ This framework relies on two specific Excel files. Please place them in the proj
 
 * **Usage:** Used exclusively for **The Proposed Method (Strategy 3 / Ours)**.
 * **Format:** Must strictly follow the same column structure as `1.xlsx`.
+* `CasInf`, `DocMes`, `PatMes` (Text columns)
+* `PatSat` (Target variable: 0, 1, 2 for labeled; -1 for unlabeled)
+
 
 ---
 
@@ -156,36 +158,29 @@ After execution, the following results are generated:
 3. **Model Files:** Serialized `.pkl` files for reproducibility.
 
 
-## 6. Testing the Pre-trained Model
+---
 
-To facilitate direct evaluation of our proposed method without the need for retraining, we provide a pre-trained model checkpoint named `ssl_enhanced_model_rs_2025.pkl`.
+## 6. Using the Pre-trained Model for Reasoning
+We provide a production-ready checkpoint so that users can directly use the model for reasoning and verify the effectiveness of the aircraft logic. This allows you to skip the training phase and strictly evaluate the performance of Strategy 3.
 
-This model corresponds to **Strategy 3 (Ours)** and achieves the reported performance metrics. Please follow the steps below to perform inference on the test dataset (`3.xlsx`).
-
-### 1. Prerequisites
+### 1. Preparation
 
 Ensure you have the following files in your project directory:
 
-* **Model File:** `ssl_enhanced_model_rs_2025.pkl` (The trained Self-Training Classifier).
+* **Model File:** `ssl_enhanced_model_rs_2025.pkl` (The pre-trained model weights.).
 * **Scaler File:** `scaler_enhanced_rs_2025.pkl` (Required to normalize new data exactly as done during training).
-* **Test Dataset:** `3.xlsx` (The dataset used for the proposed method).
+* **Inference Dataset:** `3.xlsx` (The data file containing the aircraft parameters for inference.).
 
-### 2. Create the Testing Script
-
-Create a new Python file named `ours_test.py`.
-
-### 3. Run the Test
-
-Execute the script in your terminal:
+### 2. Run Inference
+We have prepared a script to load the model and process the aircraft data. Create a file named ours_inference.py and execute the following command:
 
 ```bash
-python ours_test.py
+python ours_inference.py
 
 ```
 
 ### Note
 
-* The `3.xlsx` file is required because the "Ours" method was trained and validated on this specific dataset structure.
 * This script assumes the `ssl_enhanced_model_rs_2025.pkl` was saved using the `pickle` library as shown in our training scripts.
 * **No BERT Required:** Since the final classifier operates on numerical features (the semantic embeddings were only used to generate pseudo-labels during the training phase), you do not need to download the BERT model to run this specific testing script.
 
