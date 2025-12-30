@@ -4,7 +4,7 @@
 
 The project implements a comparative study of machine learning strategies for medical text prediction, specifically focusing on patient satisfaction (`PatSat`). It compares:
 
-1. **Baseline Supervised Models**: Stacking Ensemble (trained on labeled data).
+1. **Baseline Supervised Models**: Stacking Ensemble (trained on labeled data) (Strategy 1) and some widely used machine learning models.
 2. **Standard Self-Training**: Traditional semi-supervised learning (Strategy 2).
 3. **Proposed Method (Ours)**: Enhanced Self-Training utilizing BERT embeddings, UMAP dimensionality reduction, and KMeans clustering (Strategy 3).
 
@@ -193,3 +193,4 @@ python ours_test.py
 ## Contact
 
 For any questions regarding the code or dataset, please contact the author.
+
